@@ -47,4 +47,12 @@ public class UsuarioController {
 
         return "admin/verUsuarios";
     }
+
+    @GetMapping("editar/{id}")
+    public String editarUsuario(HttpSession session, @PathVariable("id") int id, Model model){
+        model.addAttribute("usuarioEditar", new UsuarioService().getUsuarioById(id));
+
+
+        return "admin/editarUsuario";
+    }
 }

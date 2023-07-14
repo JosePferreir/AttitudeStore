@@ -52,7 +52,7 @@
                             <td>${c.email}</td>
                             <td>
                                 <a href="clientes?op=ExcluirUsuario&&id=${c.id}">Excluir</a>
-                                <a href="clientes?op=EditarUsuario&&id=${c.id}">Editar</a>
+                                <a href="/attitudeStore/usuario/editar/${c.id}">Editar</a>
                             </td>
                         </tr>
                     </c:if>
