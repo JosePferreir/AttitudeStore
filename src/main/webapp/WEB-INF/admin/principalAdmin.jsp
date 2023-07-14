@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: josep
-  Date: 11/07/2023
-  Time: 21:00
+  Date: 14/07/2023
+  Time: 02:25
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,28 +16,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Incluir o CSS do Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>Login</title>
+  <title>Menu admin</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
 </head>
 <body>
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container">
   <div class="card">
     <div class="card-body">
-      <h2 class="card-title">LOGAR</h2>
-      <form:form method="post" action="/attitudeStore/login/logar" modelAttribute="usuario">
-        <div class="form-group">
-          <form:label path="email">Email:</form:label>
-          <form:input type="email" class="form-control" path="email"/>
-        </div>
-        <div class="form-group">
-          <form:label path="senha">Senha:</form:label>
-          <form:input type="password" class="form-control" path="senha"/>
-        </div>
-        <input class="btn btn-primary" type="submit" value="testando">
-      </form:form>
-      <div>
-        <a href="cadastrar.jsp">Cadastrar-se</a>
-      </div>
-
+      <h1 class="card-title">Bem vindo admin</h1>
+      <a href="/attitudeStore/roupa/roupasCadastradas" class="card-link btn btn-primary mt-2">Ver roupas cadastradas</a> <br>
+      <a href="/attitudeStore/roupa/cadastrar" class="card-link btn btn-primary mt-2">Cadastrar roupa</a> <br> <br>
+      <a href="/attitudeStore/usuario/verUsuarios" class="card-link btn btn-primary mt-2">Ver clientes cadastrados</a> <br> <br>
+      <a href="compra?op=getHistoricoAdmin" class="card-link btn btn-primary mt-2">Ver Histórico de Vendas</a>
+      <a href="/attitudeStore/login/sair" class="card-link btn btn-primary mt-2">Sair</a>
     </div>
   </div>
 </div>

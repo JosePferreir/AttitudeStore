@@ -21,9 +21,9 @@
 
 <h1 class="text-center">Bem vindo a Attitude Store</h1>
 
-<a  href="compra?op=VerCarrinho" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-<a href="clientes?op=EditarPerfil" class="btn btn-primary">Editar perfil</a>
-<a href="compra?op=VerHistoricoUsuario" class="btn btn-primary">Histórico de Compras</a>
+<a href="/attitudeStore/compra/verCarrinho" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
+<a href="/attitudeStore/usuario/editarPerfil" class="btn btn-primary">Editar perfil</a>
+<a href="/attitudeStore/compra/historicoCompras" class="btn btn-primary">Histórico de Compras</a>
 
 <div class="container d-flex justify-content-center align-items-center flex-column mt-3">
 

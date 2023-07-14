@@ -20,20 +20,23 @@ public class LoginController {
 
     @PostMapping("/logar")
     public String logar(Model model, HttpSession session,@ModelAttribute("usuario") Usuario usuarioLogando) {
-        System.out.println(usuarioLogando.getEmail());
-        //session.invalidate();
-        /**/
+
+
         Usuario u = new UsuarioService().autenticar(usuarioLogando.getEmail(), usuarioLogando.getSenha());
 
         if(u != null){
             if(u.getPermissao().getNome().equals("CLIENTE")){
-                System.out.println("entrou aqui");
+
                 session.setAttribute("user", u);
                 session.setAttribute("carrinho", new Compra());
 
                 model.addAttribute("roupas", new RoupaService().getAllRoupas());
 
                 return "clientes/principal";
+            } else if (u.getPermissao().getNome().equals("ADMIN")){
+                session.setAttribute("user", u);
+
+                return "admin/principalAdmin";
             }
         }
         return "login";
