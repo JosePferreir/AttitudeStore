@@ -16,21 +16,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Incluir o CSS do Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Cadastrar-se</title>
+    <title>Cadastro</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #94BABB;
         }
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card w-50">
         <div class="card-body">
-            <h2 class="card-title">Cadastrar</h2>
+            <h2 class="card-title">Cadastre-se</h2>
             <form:form method="post" action="/attitudeStore/usuario/confirmarCadastro" modelAttribute="usuario">
                 <div class="form-group">
                     <form:label path="nome">Nome:</form:label>
@@ -54,9 +51,10 @@
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-primary" type="submit">Cadastrar-se</button>
+                <button class="btn" style="background-color: #7B9B9B;" type="submit">Cadastrar-se</button>
             </form:form>
-            <a href="/attitudeStore/">Login</a>
+            <p class="mt-1">Já possui conta? Faça <a href="/attitudeStore/">Login</a></p>
+
         </div>
     </div>
 </div>

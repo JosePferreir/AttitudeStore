@@ -16,6 +16,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Incluir o CSS do Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #94BABB;
+    }
+  </style>
   <title>Login</title>
 </head>
 <body>
@@ -32,10 +37,11 @@
           <form:label path="senha">Senha:</form:label>
           <form:input type="password" class="form-control" path="senha"/>
         </div>
-        <input class="btn btn-primary" type="submit" value="testando">
+        <input class="btn" style="background-color: #7B9B9B;" type="submit" value="Logar">
       </form:form>
       <div>
-        <a href="/attitudeStore/usuario/cadastrar" >Cadastrar-se</a>
+        <p class="mt-1">Não possui conta? <br><a href="/attitudeStore/usuario/cadastrar">Cadastrar-se</a></p>
+
       </div>
 
     </div>

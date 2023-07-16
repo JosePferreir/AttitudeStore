@@ -31,7 +31,6 @@ public class UsuarioController {
         Usuario user = (Usuario) session.getAttribute("user");
 
         if(user.getPermissao().getNome().equals("CLIENTE")){
-            System.out.println(usuarioEditar.getId());
             session.setAttribute("user",new UsuarioService().getUsuarioById(usuarioEditar.getId()));
             model.addAttribute("roupas", new RoupaService().getAllRoupas());
             return "clientes/principal";
@@ -50,9 +49,8 @@ public class UsuarioController {
     }
 
     @GetMapping("editar/{id}")
-    public String editarUsuario(HttpSession session, @PathVariable("id") int id, Model model){
+    public String editarUsuario(@PathVariable("id") int id, Model model){
         model.addAttribute("usuarioEditar", new UsuarioService().getUsuarioById(id));
-
 
         return "admin/editarUsuario";
     }

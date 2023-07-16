@@ -18,4 +18,8 @@ public class CompraService {
     public ArrayList<Compra> getVendasAdmin(){
         return new CompraDAO().getHistoricoAdmin();
     }
+
+    public Compra getCompraById(int id){
+        return new CompraDAO().getCompraById(id);
+    }
 }

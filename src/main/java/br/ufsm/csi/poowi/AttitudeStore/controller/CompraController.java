@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import static java.lang.Integer.parseInt;
 
 @Controller
@@ -25,7 +28,6 @@ public class CompraController {
     @GetMapping("/addItemCarrinho/{id}")
     public String adicionar(HttpSession session, @PathVariable("id") int id, Model model){
         boolean jaTem = false;
-        System.out.println(id);
 
         Compra carrinho = (Compra) session.getAttribute("carrinho");
 
@@ -38,9 +40,6 @@ public class CompraController {
         }
         if(jaTem == false){
             carrinho.setRoupas(new RoupaService().getRoupaById(id));
-        }
-        for(Roupa r : carrinho.getRoupas()){
-            System.out.println(r.getNome()+r.getQuantidade());
         }
 
         model.addAttribute("roupas", new RoupaService().getAllRoupas());
@@ -64,7 +63,7 @@ public class CompraController {
     @GetMapping("/finalizarCompra")
     public String finalizarCompra(HttpSession session, Model model){
         Compra carrinho = (Compra) session.getAttribute("carrinho");
-        Usuario user = (Usuario) session.getAttribute("user") ;
+        Usuario user = (Usuario) session.getAttribute("user");
 
         new CompraService().cadastrarCompra(carrinho,user);
         session.setAttribute("carrinho", new Compra());
@@ -101,15 +100,15 @@ public class CompraController {
     }
 
     @GetMapping("/historicoAdmin")
-    public String historicoVendasAdmin(HttpSession session, Model model){;
+    public String historicoVendasAdmin(Model model){;
         model.addAttribute("historico", new CompraService().getVendasAdmin());
 
         return "admin/vendas";
     }
 
-    @GetMapping("/detalhesVenda")
-    public String detalhesVenda(){
-
+    @GetMapping("/detalhesVenda/{id}")
+    public String detalhesVenda(@PathVariable("id") int id, Model model){
+        model.addAttribute("compra", new CompraService().getCompraById(id));
 
         return "admin/detalhesVenda";
     }

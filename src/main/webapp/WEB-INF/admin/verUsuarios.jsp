@@ -14,20 +14,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Incluir o CSS do Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Clientes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Menu admin</title>
     <style>
         body {
-            display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #94BABB;
         }
     </style>
 </head>
 <body>
-<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #7B9B9B;">
+    <a class="navbar-brand" href="/attitudeStore/admin/home">AttitudeStore</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/attitudeStore/admin/home">Home</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item" >
+                <a class="nav-link" href="/attitudeStore/roupa/roupasCadastradas">Roupas</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/attitudeStore/usuario/verUsuarios">Clientes</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/attitudeStore/compra/historicoAdmin">Vendas</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ${user.nome}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/attitudeStore/login/sair">Sair</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-3">
     <h1>Clientes cadastrados</h1>
 
     <div class="card">
@@ -51,8 +92,12 @@
                             <td>${c.cpf}</td>
                             <td>${c.email}</td>
                             <td>
-                                <a href="clientes?op=ExcluirUsuario&&id=${c.id}">Excluir</a>
-                                <a href="/attitudeStore/usuario/editar/${c.id}">Editar</a>
+                                <a href="clientes?op=ExcluirUsuario&&id=${c.id}">
+                                    <i class="fas fa-trash-alt" style="color: #FF0000;"></i>
+                                </a>
+                                <a href="/attitudeStore/usuario/editar/${c.id}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                             </td>
                         </tr>
                     </c:if>
@@ -64,7 +109,7 @@
 
 
 
-    <a class="btn btn-primary mt-3" href="/attitudeStore/admin/home">Voltar</a>
+    <a class="btn mt-3" style="background-color: #7B9B9B;" href="/attitudeStore/admin/home">Voltar</a>
 </div>
 
 <!-- Incluir o JavaScript do Bootstrap -->

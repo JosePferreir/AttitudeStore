@@ -20,7 +20,7 @@ public class RoupaController {
     }
 
     @GetMapping("/excluir/{id}")
-    public String excluir(HttpSession session, @PathVariable("id") int id, Model model){
+    public String excluir(@PathVariable("id") int id, Model model){
         new RoupaService().excluir(id);
 
         model.addAttribute("roupas", new RoupaService().getAllRoupas());
@@ -28,14 +28,14 @@ public class RoupaController {
     }
 
     @GetMapping("/editar/{id}")
-    public String editar(HttpSession session, @PathVariable("id") int id, Model model){
+    public String editar(@PathVariable("id") int id, Model model){
 
         model.addAttribute("roupaEditar", new RoupaService().getRoupaById(id));
         return "admin/editarRoupa";
     }
 
     @PostMapping("confirmarEditar")
-    public String confirmarEditar(Model model, HttpSession session,@ModelAttribute("roupaEditar") Roupa roupaEditar){
+    public String confirmarEditar(Model model,@ModelAttribute("roupaEditar") Roupa roupaEditar){
         new RoupaService().editarRoupa(roupaEditar);
 
         model.addAttribute("roupas", new RoupaService().getAllRoupas());
@@ -49,7 +49,7 @@ public class RoupaController {
     }
 
     @PostMapping("/cadastrar")
-    public String confirmarCadastrar(Model model, HttpSession session,@ModelAttribute("roupa") Roupa roupa){
+    public String confirmarCadastrar(@ModelAttribute("roupa") Roupa roupa){
         new RoupaService().cadastrarRoupa(roupa);
 
         return "admin/principalAdmin";

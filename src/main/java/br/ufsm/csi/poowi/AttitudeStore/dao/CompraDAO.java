@@ -30,7 +30,6 @@ public class CompraDAO {
 
             if(this.rs.getInt(1) > 0){
                 c.setId(this.rs.getInt(1));
-                System.out.println(c.getId());
                 this.status = "OK";
             }
 
@@ -96,7 +95,7 @@ public class CompraDAO {
                         r.setDescricao(this.rs.getString("descricao"));
                         r.setQuantidade(rs.getInt("quantidade"));
 
-                        compras.get(i).setRoupas(r);
+                        compras.get(i).addRoupasBusca(r);
                     }
                 }
             }
@@ -138,9 +137,8 @@ public class CompraDAO {
         return compras;
     }
 
-    public Compra getCompraById(int id, float valor){
+    public Compra getCompraById(int id){
         Compra c = new Compra();
-        c.setTotalCompra(valor);
 
         try(Connection conn = new ConectaDB().getConexao()){
             this.sql = "Select * FROM compra_roupa cr, roupa where cr.id_roupa = roupa.id_roupa and cr.id_compra = ?";
@@ -160,7 +158,8 @@ public class CompraDAO {
                 r.setDescricao(this.rs.getString("descricao"));
                 r.setQuantidade(rs.getInt("quantidade"));
 
-                c.setRoupas(r);
+                c.setTotalCompra((r.getPreco()*r.getQuantidade()));
+                c.addRoupasBusca(r);
             }
         }catch (Exception e){
             e.printStackTrace();
