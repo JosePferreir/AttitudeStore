@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: josep
-  Date: 14/07/2023
-  Time: 12:40
+  Date: 15/07/2023
+  Time: 14:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Incluir o CSS do Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Editar usuário</title>
+    <title>Cadastrar-se</title>
     <style>
         body {
             display: flex;
@@ -28,40 +28,37 @@
 </head>
 <body>
 <div class="container">
-    <h1>Editar usuário</h1>
-
-    <div class="card">
+    <div class="card w-50">
         <div class="card-body">
-            <form:form method="post" action="/attitudeStore/usuario/confirmarEditar" modelAttribute="usuarioEditar">
+            <h2 class="card-title">Cadastrar</h2>
+            <form:form method="post" action="/attitudeStore/usuario/confirmarCadastro" modelAttribute="usuario">
                 <div class="form-group">
                     <form:label path="nome">Nome:</form:label>
-                    <form:input type="text" class="form-control" id="nome" path="nome" value="${usuarioEditar.nome}"/>
+                    <form:input type="text" class="form-control" id="nome" path="nome"/>
                 </div>
                 <div class="form-group">
                     <form:label path="idade">Idade:</form:label>
-                    <form:input type="number" class="form-control" id="idade" path="idade" value="${usuarioEditar.idade}"/>
+                    <form:input type="number" class="form-control" id="idade" path="idade"/>
                 </div>
                 <div class="form-group">
                     <form:label path="cpf">CPF:</form:label>
-                    <form:input type="text" class="form-control" id="cpf" path="cpf" value="${usuarioEditar.cpf}"/>
+                    <form:input type="text" class="form-control" id="cpf" path="cpf"/>
                 </div>
                 <div class="form-group">
                     <form:label path="email">Email:</form:label>
-                    <form:input type="text" class="form-control" id="email" path="email" value="${usuarioEditar.email}"/>
+                    <form:input type="email" class="form-control" id="email" path="email"/>
                 </div>
                 <div class="form-group">
                     <form:label path="senha">Senha:</form:label>
-                    <form:input type="password" class="form-control" id="senha" path="senha" value="${usuarioEditar.senha}"/>
+                    <form:input type="password" class="form-control" id="senha" path="senha"/>
                 </div>
-                <form:input type="hidden" path="id" value="${usuarioEditar.id}"/>
-                <br />
-                <br />
-                <button type="submit" class="btn btn-primary">Editar Cliente</button>
+                <br>
+                <br>
+                <button class="btn btn-primary" type="submit">Cadastrar-se</button>
             </form:form>
+            <a href="/attitudeStore/">Login</a>
         </div>
     </div>
-
-    <a href="/attitudeStore/usuario/verUsuarios">Voltar</a>
 </div>
 
 <!-- Incluir o JavaScript do Bootstrap -->

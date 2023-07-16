@@ -35,7 +35,7 @@
         <input class="btn btn-primary" type="submit" value="testando">
       </form:form>
       <div>
-        <a href="cadastrar.jsp">Cadastrar-se</a>
+        <a href="/attitudeStore/usuario/cadastrar" >Cadastrar-se</a>
       </div>
 
     </div>

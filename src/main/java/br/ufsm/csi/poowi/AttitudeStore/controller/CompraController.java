@@ -100,4 +100,17 @@ public class CompraController {
         return "/clientes/verCarrinho";
     }
 
+    @GetMapping("/historicoAdmin")
+    public String historicoVendasAdmin(HttpSession session, Model model){;
+        model.addAttribute("historico", new CompraService().getVendasAdmin());
+
+        return "admin/vendas";
+    }
+
+    @GetMapping("/detalhesVenda")
+    public String detalhesVenda(){
+
+
+        return "admin/detalhesVenda";
+    }
 }

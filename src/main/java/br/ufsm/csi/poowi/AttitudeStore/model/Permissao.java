@@ -7,9 +7,8 @@ public class Permissao {
     public Permissao() {
     }
 
-    public Permissao(int id, String nome) {
+    public Permissao(int id) {
         this.id = id;
-        this.nome = nome;
     }
 
     public int getId() {

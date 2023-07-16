@@ -34,7 +34,7 @@
       <a href="/attitudeStore/roupa/roupasCadastradas" class="card-link btn btn-primary mt-2">Ver roupas cadastradas</a> <br>
       <a href="/attitudeStore/roupa/cadastrar" class="card-link btn btn-primary mt-2">Cadastrar roupa</a> <br> <br>
       <a href="/attitudeStore/usuario/verUsuarios" class="card-link btn btn-primary mt-2">Ver clientes cadastrados</a> <br> <br>
-      <a href="compra?op=getHistoricoAdmin" class="card-link btn btn-primary mt-2">Ver Histórico de Vendas</a>
+      <a href="/attitudeStore/compra/historicoAdmin" class="card-link btn btn-primary mt-2">Ver Histórico de Vendas</a>
       <a href="/attitudeStore/login/sair" class="card-link btn btn-primary mt-2">Sair</a>
     </div>
   </div>

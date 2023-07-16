@@ -1,5 +1,6 @@
 package br.ufsm.csi.poowi.AttitudeStore.controller;
 
+import br.ufsm.csi.poowi.AttitudeStore.model.Permissao;
 import br.ufsm.csi.poowi.AttitudeStore.model.Usuario;
 import br.ufsm.csi.poowi.AttitudeStore.service.RoupaService;
 import br.ufsm.csi.poowi.AttitudeStore.service.UsuarioService;
@@ -54,5 +55,23 @@ public class UsuarioController {
 
 
         return "admin/editarUsuario";
+    }
+
+    @GetMapping("/cadastrar")
+    public String cadastrarUsuario(Model model){
+        model.addAttribute("usuario", new Usuario());
+
+        return "cadastrar";
+    }
+
+    @PostMapping("/confirmarCadastro")
+    public String confirmarCadastro(Model model, @ModelAttribute("usuario") Usuario usuario){
+        Permissao p = new Permissao(2);
+        usuario.setPermissao(p);
+        new UsuarioService().cadastrarUsuario(usuario);
+
+        model.addAttribute("usuario", new Usuario());
+
+        return "login";
     }
 }

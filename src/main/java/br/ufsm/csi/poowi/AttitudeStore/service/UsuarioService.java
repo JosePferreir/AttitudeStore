@@ -28,4 +28,8 @@ public class UsuarioService {
         return new UsuarioDAO().getAllUsuarios();
     }
 
+    public void cadastrarUsuario(Usuario u){
+        new UsuarioDAO().cadastrarUsuario(u);
+    }
+
 }
